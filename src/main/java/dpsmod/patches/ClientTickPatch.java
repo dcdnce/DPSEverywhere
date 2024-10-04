@@ -2,14 +2,11 @@ package dpsmod.patches;
 
 import dpsmod.DPSMod;
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modLoader.annotations.ModMethodPatch;
-import necesse.engine.util.GameRandom;
 import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.Mob;
 import necesse.gfx.gameFont.FontOptions;
-import necesse.gfx.gameTooltips.GameTooltipManager;
-import necesse.gfx.gameTooltips.StringTooltips;
-import necesse.gfx.gameTooltips.TooltipLocation;
 import necesse.level.maps.hudManager.floatText.FloatTextFade;
 import net.bytebuddy.asm.Advice;
 
@@ -28,10 +25,17 @@ public class ClientTickPatch {
         if (mob.getLevel().tickManager().isFirstGameTickInSecond() && DPSMod.playerDPSTracker.isLastHitBeforeReset(currentTime)) {
             int dps = DPSMod.playerDPSTracker.getDPS(currentTime);
 
-            System.out.println("ClientTickPatch :: player dps : " + dps);
+//            System.out.println("ClientTickPatch :: player dps : " + dps);
+
+//            int hudWidth = WindowManager.getWindow().getHudWidth();
+//            int hudHeight = WindowManager.getWindow().getHudHeight();
+//            System.out.println(hudWidth + " x " + hudHeight);
+//            System.out.println(mob.getX() + ", " + mob.getY());
+
 
             String text = Localization.translate("misc", "dpscount", "dps", GameUtils.formatNumber((double) dps));
-            FloatTextFade floatText = new FloatTextFade(mob.getX() + (int) (GameRandom.globalRandom.nextGaussian() * 6.0), mob.getY() - 32, text, (new FontOptions(16)).outline().color(Color.ORANGE));
+//            DPSMod.dpsSidebarForm.setContent(new StaticMessage(text));
+            FloatTextFade floatText = new FloatTextFade(mob.getX() - 16, mob.getY() - 16, text, (new FontOptions(16)).outline().color(Color.ORANGE));
             mob.getLevel().hudManager.addElement(floatText);
         }
     }
