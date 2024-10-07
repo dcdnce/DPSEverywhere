@@ -22,7 +22,7 @@ import java.awt.*;
 public class DPSMod {
 
     public static DPSTracker playerDPSTracker = new DPSTracker();
-    public static final FontOptions smallFontOptions = (new FontOptions(12)).color(Color.WHITE);
+    public static final FontOptions fontOptions = (new FontOptions(12)).color(Color.WHITE).forcePixelFont();
     public static Form form = null;
     public static FormLocalLabel formLabel = null;
     public static final StaticMessage staticMessage = new StaticMessage("");

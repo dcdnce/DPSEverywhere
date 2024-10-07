@@ -33,9 +33,6 @@ public class ClientTickPatch {
 
             String text = "dps: " + GameUtils.formatNumber((double) dps);
 
-//            FloatTextFade floatText = new FloatTextFade(mob.getX() - 16, mob.getY() - 16, text, (new FontOptions(16)).outline().color(Color.ORANGE));
-//            mob.getLevel().hudManager.addElement(floatText);
-
             DPSMod.staticMessage.setMessage(text);
             DPSMod.formLabel.setText(DPSMod.staticMessage);
         }
