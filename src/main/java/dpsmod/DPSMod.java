@@ -30,10 +30,11 @@ public class DPSMod {
 
     public void init() {
         System.out.println("Hello world from DPSmod!");
+        playerDPSTracker.DPS_TRACKING_TIME = 1001;
     }
 
     public static boolean shouldHandleMob(Mob mob, Attacker attacker) {
-        return mob.isHostile && attacker.getAttackOwner().isPlayer;
+        return attacker.getAttackOwner() != null && attacker.getAttackOwner().isPlayer;
     }
 
 }

@@ -31,7 +31,7 @@ public class ClientTickPatch {
         if (mob.getLevel().tickManager().isFirstGameTickInSecond() && DPSMod.playerDPSTracker.isLastHitBeforeReset(currentTime)) {
             int dps = DPSMod.playerDPSTracker.getDPS(currentTime);
 
-            String text = "dps: " + GameUtils.formatNumber((double) dps);
+            String text = GameUtils.formatNumber((double) dps) + " dps";
 
             DPSMod.staticMessage.setMessage(text);
             DPSMod.formLabel.setText(DPSMod.staticMessage);
