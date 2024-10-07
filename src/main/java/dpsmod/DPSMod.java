@@ -23,10 +23,10 @@ public class DPSMod {
     public static MainGameFormManager mainGameFormManager = null;
 
     public void init() {
-        playerDPSTracker.DPS_TRACKING_TIME = 1001;
+        playerDPSTracker.DPS_TRACKING_TIME = 1000;
     }
 
-    public static boolean shouldHandleMob(Mob mob, Attacker attacker) {
+    public static boolean shouldHandleMob(Attacker attacker) {
         return attacker.getAttackOwner() != null && attacker.getAttackOwner().isPlayer;
     }
 
