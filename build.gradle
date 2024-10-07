@@ -6,10 +6,10 @@ plugins {
 // To change the project name, edit the settings.gradle file
 
 project.ext.modID = "difool.dpsmod" // The unique id of your mod. Must be all lowercase and cannot use special characters.
-project.ext.modName = "DPS Mod" // The display name of your mod.
+project.ext.modName = "DPS always" // The display name of your mod.
 project.ext.modVersion = "1.0" // Your current builds version. Must follow the xx.xx... format.
 project.ext.gameVersion = "0.27.0" // The target game version.
-project.ext.modDescription = "DPS mod" // Short description of what your mod is.
+project.ext.modDescription = "Always have your current dps displayed." // Short description of what your mod is.
 project.ext.author = "Difool" // Your name
 
 /**
