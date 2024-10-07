@@ -2,12 +2,14 @@ package dpsmod.patches;
 
 import dpsmod.DPSMod;
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modLoader.annotations.ModMethodPatch;
 import necesse.engine.util.GameUtils;
 import necesse.engine.window.GameWindow;
 import necesse.engine.window.WindowManager;
 import necesse.entity.mobs.Mob;
+import necesse.gfx.forms.components.localComponents.FormLocalLabel;
 import necesse.gfx.gameFont.FontManager;
 import necesse.gfx.gameFont.FontOptions;
 import necesse.gfx.gameFont.GameFontHandler;
@@ -31,11 +33,11 @@ public class ClientTickPatch {
 
             String text = "dps: " + GameUtils.formatNumber((double) dps);
 
-            GameWindow window = WindowManager.getWindow();
-
             FloatTextFade floatText = new FloatTextFade(mob.getX() - 16, mob.getY() - 16, text, (new FontOptions(16)).outline().color(Color.ORANGE));
             mob.getLevel().hudManager.addElement(floatText);
-            DPSMod.font.drawString(window.getHudWidth() / 2.0F, window.getHudHeight() / 2.0f, text, DPSMod.smallFontOptions);
+
+            DPSMod.staticMessage.setMessage(text);
+            DPSMod.formLabel.setText(DPSMod.staticMessage);
         }
     }
 }
