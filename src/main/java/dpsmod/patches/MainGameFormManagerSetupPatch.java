@@ -8,8 +8,6 @@ import necesse.gfx.forms.MainGameFormManager;
 import necesse.gfx.forms.components.localComponents.FormLocalLabel;
 import net.bytebuddy.asm.Advice;
 
-import java.awt.*;
-
 @ModMethodPatch(target = MainGameFormManager.class, name = "setup", arguments = {})
 public class MainGameFormManagerSetupPatch {
     @Advice.OnMethodExit

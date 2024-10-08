@@ -4,7 +4,6 @@ import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modLoader.annotations.ModEntry;
 import necesse.engine.util.DPSTracker;
 import necesse.entity.mobs.Attacker;
-import necesse.entity.mobs.Mob;
 import necesse.gfx.forms.Form;
 import necesse.gfx.forms.MainGameFormManager;
 import necesse.gfx.forms.components.localComponents.FormLocalLabel;
