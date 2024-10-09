@@ -4,6 +4,8 @@ import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modLoader.annotations.ModEntry;
 import necesse.engine.util.DPSTracker;
 import necesse.entity.mobs.Attacker;
+import necesse.entity.mobs.Mob;
+import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.forms.Form;
 import necesse.gfx.forms.MainGameFormManager;
 import necesse.gfx.forms.components.localComponents.FormLocalLabel;
@@ -26,7 +28,15 @@ public class DPSMod {
     }
 
     public static boolean shouldHandleMob(Attacker attacker) {
-        return attacker.getAttackOwner() != null && attacker.getAttackOwner().isPlayer;
+        Mob attackerMob = attacker.getAttackOwner();
+
+        if (attackerMob == null || !attackerMob.isPlayer)
+            return false;
+
+        PlayerMob playerAttacker = (PlayerMob) attacker.getAttackOwner();
+        PlayerMob clientPlayer = attackerMob.getClient().getPlayer();
+
+        return playerAttacker.getUniqueID() == clientPlayer.getUniqueID();
     }
 
 }
