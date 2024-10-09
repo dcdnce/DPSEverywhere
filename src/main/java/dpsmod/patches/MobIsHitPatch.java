@@ -13,14 +13,11 @@ public class MobIsHitPatch {
             return ;
 
         if (mob.isClient() && mob.getLevel() != null) {
-            if (DPSMod.shouldHandleMob(attacker) && mob.shouldSendSpawnPacket()) {
-                if (event.damage > 0) {
-                    DPSMod.playerDPSTracker.addHit(mob.getWorldEntity().getTime(), event.damage);
-                }
+            if (DPSMod.shouldHandleMob(attacker) && mob.shouldSendSpawnPacket() && event.damage > 0) {
+                DPSMod.playerDPSTracker.addHit(mob.getWorldEntity().getTime(), event.damage);
             }
         }
     }
-
 }
 
 
