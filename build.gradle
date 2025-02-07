@@ -8,7 +8,7 @@ plugins {
 project.ext.modID = "difool.dpseverywhere" // The unique id of your mod. Must be all lowercase and cannot use special characters.
 project.ext.modName = "DPS Everywhere" // The display name of your mod.
 project.ext.modVersion = "1.0.3" // Your current builds version. Must follow the xx.xx... format.
-project.ext.gameVersion = "0.29.0" // The target game version.
+project.ext.gameVersion = "0.30.0" // The target game version.
 project.ext.modDescription = "Always have your current dps displayed." // Short description of what your mod is.
 project.ext.author = "Difool" // Your name
 
